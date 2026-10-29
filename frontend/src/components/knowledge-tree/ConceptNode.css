@@ -1,0 +1,222 @@
+.concept-node-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px 8px 36px;
+  position: relative;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-bottom: 2px;
+  user-select: none;
+}
+
+.concept-node-row:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.concept-node-row.is-selected {
+  background-color: var(--accent-50);
+  border: 1px solid var(--accent-200);
+}
+
+.concept-node-row:focus-visible {
+  outline: 2px solid var(--accent-500);
+  outline-offset: -1px;
+}
+
+/* Tree line connectors */
+.tree-connector-concept {
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.concept-node-row::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: -6px;
+  bottom: 50%;
+  width: 1px;
+  background-color: var(--border-hover);
+}
+
+.concept-node-row:not(.is-last-node)::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  bottom: -6px;
+  width: 1px;
+  background-color: var(--border-hover);
+}
+
+.connector-horizontal {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background-color: var(--border-hover);
+}
+
+.concept-bullet {
+  position: absolute;
+  left: 10px;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.concept-node-row:hover .concept-bullet {
+  color: var(--accent-600);
+}
+
+.concept-node-row.is-selected .concept-bullet {
+  color: var(--accent-600);
+}
+
+.concept-node-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 6px;
+}
+
+.concept-node-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.concept-name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.concept-node-row.is-selected .concept-name {
+  color: var(--accent-700);
+  font-weight: 600;
+}
+
+.citation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  color: var(--text-tertiary);
+  background-color: var(--bg-subtle);
+  padding: 1px 5px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-default);
+  flex-shrink: 0;
+}
+
+.concept-node-keywords {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.mini-keyword-tag {
+  font-size: 10.5px;
+  color: var(--text-tertiary);
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  padding: 1px 5px;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+}
+
+.mini-keyword-more {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.search-highlight {
+  background-color: #fef08a;
+  color: #854d0e;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* Completion state styling */
+.concept-node-row.is-concept-completed {
+  background-color: rgba(16, 185, 129, 0.03);
+}
+
+.concept-node-row.is-concept-completed:hover {
+  background-color: rgba(16, 185, 129, 0.07);
+}
+
+.is-completed-bullet {
+  color: #10b981 !important;
+}
+
+.concept-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.completed-mini-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #047857;
+  background-color: #d1fae5;
+  border: 1px solid #a7f3d0;
+  padding: 0 4px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.concept-node-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Compact Learn with AI button */
+.concept-learn-ai-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-700, #6d28d9);
+  background-color: var(--accent-50, #f5f3ff);
+  border: 1px solid var(--accent-200, #ddd6fe);
+  border-radius: 9999px;
+  padding: 2px 7px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.concept-learn-ai-btn:hover {
+  background-color: var(--accent-600, #7c3aed);
+  border-color: var(--accent-600, #7c3aed);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(124, 58, 237, 0.2);
+}
+
+.concept-node-row:hover .concept-learn-ai-btn {
+  border-color: var(--accent-300, #c4b5fd);
+}
